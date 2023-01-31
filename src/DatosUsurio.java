@@ -12,6 +12,7 @@ public class DatosUsurio {
     private JButton guardarButton;
     private JPanel resgistro;
     private JButton cancelarButton;
+    private JButton borrarButton;
 
     PreparedStatement ps;
 
@@ -44,16 +45,28 @@ public class DatosUsurio {
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al Guardar persona");
                     }
+
+
                     //limpiartxt();
                     //txtId.setText("");
                     //txtNombre.setText("");
                     //txtCelular.setText("");
                     //txtCorreo.setText("");
+
                     con.close();//importante!!!!
                 }catch (HeadlessException | SQLException f){
                     System.err.println(f);
                 }
 
+            }
+        });
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ingresarID.setText(null);
+                ingresarNombre.setText(null);
+                ingresarCorreo.setText(null);
+                ingresarCelular.setText(null);
             }
         });
     }
